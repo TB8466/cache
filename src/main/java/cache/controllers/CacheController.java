@@ -21,6 +21,7 @@ public class CacheController {
             User user = new User(id);
             String s = user.getDataSlow();
             userCache.set(id,s);
+            userCache.setTTL(id); //TTL = 1.5 min
             return s;
         }
         return "/get-user-data";
